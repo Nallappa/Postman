@@ -1,0 +1,29 @@
+//How to kill a task
+netstat  -ano  |  findstr  8080
+ taskkill  /F  /PID  25392
+ 
+ //How to start the rest api
+java -jar rest.jar --server.port=8086  //to start the jar with different port
+
+https://documenter.getpostman.com/view/6854918/S1Lr4WYt
+https://developer.paypal.com/reference/
+https://developer.twitter.com/en/docs/api-reference-index
+https://api.twitter.com/1.1/statuses/update.json
+https://www.getpostman.com/
+https://learning.getpostman.com/docs/postman/scripts/postman_sandbox/
+
+//Commands in Newman
+	newman run test.json
+	newman run test.json -n 3 // To iterate 3 times
+	newman run test.json -n 3 --delay-request 2000
+	newman run test.json -e yahoo.env.json //To run the file with environment varibles
+	newman run test.json --silent
+	newman run postman.json --f Headers /// to execute only the headers
+	
+	Jenkins script in windows batch command:
+	cd C:\Users\nalpasav\AppData\Roaming\npm\node_modules\newman\bin
+    node newman run C:\\Users\\nalpasav\\scriptingdemo.json --disable-unicode
+
+
+
+	Top Companies : visa, walmart, amazon, SAP
