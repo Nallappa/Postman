@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "343a8381-5e09-40d5-a7cf-0b6cd250f557",
+		"name": "DataDrivenTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8085/student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "cookie",
+						"value": "124356",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"firstName\": \"{{first_name}}\",\r\n        \"lastName\": \"{{last_name}}\",\r\n        \"email\": \"{{email}}\",\r\n        \"programme\": \"Electronis\",\r\n        \"courses\": [\r\n            \"Communication\",\r\n            \"Ecd\"\r\n        ]\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8086/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/student/list",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b99dd0d5-59dc-46d2-bf93-b0be9d305b66",
+						"exec": [
+							"console.log(\"This is before the Test\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd345e1c-829c-4175-9855-09ba5e2cd779",
+						"exec": [
+							"",
+							"console.log(\"This is after the Test\")",
+							"tests[\"Student code is 200\"] === responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8086/student/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"student",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
